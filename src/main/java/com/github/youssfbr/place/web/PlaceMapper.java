@@ -6,6 +6,6 @@ import com.github.youssfbr.place.domain.Place;
 class PlaceMapper {
 
     public static PlaceDTO fromPlaceToPlaceDTO(Place place) {
-        return new PlaceDTO(place.name() , place.slug() , place.state());
+        return new PlaceDTO(place.name() , place.slug() , place.state() , place.createdAt() , place.updatedAt());
     }
 }

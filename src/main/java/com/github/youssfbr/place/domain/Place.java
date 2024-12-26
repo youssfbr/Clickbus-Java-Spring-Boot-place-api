@@ -1,5 +1,8 @@
 package com.github.youssfbr.place.domain;
 
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+
 import java.time.LocalDateTime;
 
 public record Place(
@@ -9,7 +12,7 @@ public record Place(
         String slug ,
         String state ,
 
-        LocalDateTime createdAt ,
-        LocalDateTime updatedAt
+        @CreatedDate LocalDateTime createdAt ,
+        @LastModifiedDate LocalDateTime updatedAt
 ) {
 }
