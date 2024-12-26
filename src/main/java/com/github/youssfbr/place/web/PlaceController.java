@@ -2,8 +2,8 @@ package com.github.youssfbr.place.web;
 
 import com.github.youssfbr.place.api.CreatePlaceDTO;
 import com.github.youssfbr.place.api.PlaceDTO;
-import com.github.youssfbr.place.domain.Place;
 import com.github.youssfbr.place.domain.PlaceService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +23,7 @@ public class PlaceController {
     }
 
     @PostMapping
-    public ResponseEntity<Mono<PlaceDTO>> create(@RequestBody CreatePlaceDTO dto) {
+    public ResponseEntity<Mono<PlaceDTO>> create(@Valid @RequestBody CreatePlaceDTO dto) {
         final Mono<PlaceDTO> createdPlace = placeService.create(dto).map(PlaceMapper::fromPlaceToPlaceDTO);
         return ResponseEntity.status(HttpStatus.CREATED).body(createdPlace);
     }

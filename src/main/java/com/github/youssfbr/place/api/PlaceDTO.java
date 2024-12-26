@@ -8,6 +8,6 @@ public record PlaceDTO(
         String slug ,
         String state ,
         LocalDateTime createdAt ,
-        LocalDateTime updateAt
+        LocalDateTime updatedAt
 ) {
 }

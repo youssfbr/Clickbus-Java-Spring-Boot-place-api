@@ -4,8 +4,6 @@ import com.github.slugify.Slugify;
 import com.github.youssfbr.place.api.CreatePlaceDTO;
 import reactor.core.publisher.Mono;
 
-import java.time.LocalDateTime;
-
 public class PlaceService {
 
     private final IPlaceRepository placeRepository;
@@ -17,7 +15,7 @@ public class PlaceService {
     }
 
     public Mono<Place> create(CreatePlaceDTO dto) {
-        final Place place = new Place(null , dto.name() , slf.slugify(dto.name()) , dto.state() , LocalDateTime.now() , null);
+        final Place place = new Place(null , dto.name() , slf.slugify(dto.name()) , dto.state() , null , null);
         return placeRepository.save(place);
     }
 
